@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Rocosa.Models.Categoria>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary">Lista de Categorias</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Categoria" asp-action="Crear" class="btn btn-primary">Nueva Categoria</a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre Categoria</th>
+                    <th>Orden</th>
+                    <th></th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td width="50%">@item.NombreCategoria</td>
+                        <td width="50%">@item.MostrarOrden</td>
+                        <td>
+                            @* <a asp-action="Edit" asp-route-id="@item.IdCategoria">Editar</a> 
+                            <a asp-action="Details" asp-route-id="@item.IdCategoria">Detalles</a> 
+                            <a asp-action="Delete" asp-route-id="@item.IdCategoria">Eliminar</a> *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>No hay categorias registradas</p>
+    }
+</div>
+
