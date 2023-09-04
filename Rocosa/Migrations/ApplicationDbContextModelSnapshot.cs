@@ -39,6 +39,22 @@ namespace Rocosa.Migrations
 
                     b.ToTable("Categoria");
                 });
+
+            modelBuilder.Entity("Rocosa.Models.TipoAplicacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoAplicacion");
+                });
 #pragma warning restore 612, 618
         }
     }
